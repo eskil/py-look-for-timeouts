@@ -139,12 +139,11 @@ class Checker(ast.NodeVisitor):
                 desc='urlopen call'
             )
         elif self._is_httplib_call(function_name):
-            self._check_timeout_call(
+            self.errors.append(IllegalLine(
+                'httplib is never timeout safe',
                 node,
-                arg_offset=5,
-                kwarg_name='timeout',
-                desc='httplib connection'
-            )
+                self.filename
+            ))
         elif self._is_twilio_call(function_name):
             self._check_timeout_call(
                 node,
