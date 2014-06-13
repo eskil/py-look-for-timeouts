@@ -35,9 +35,9 @@ class TestSimple(TestCase):
     def test_bad_httpconnection(self):
         errors = check(join(SAMPLE_PATH, 'bad_httpconnection.py'))
         self.assertEqual(len(errors), 6)
-        self.assertEqual(errors[0].reason, 'httplib connection without a timeout arg or kwarg')
-        self.assertEqual(errors[2].reason, 'httplib connection with a timeout kwarg of 0')
-        self.assertEqual(errors[5].reason, 'httplib connection with a timeout arg of 0')
+        self.assertEqual(errors[0].reason, 'httplib is never timeout safe')
+        self.assertEqual(errors[2].reason, 'httplib is never timeout safe')
+        self.assertEqual(errors[5].reason, 'httplib is never timeout safe')
 
     def test_bad_twilio_connection(self):
         errors = check(join(SAMPLE_PATH, 'bad_twilio_connection.py'))

@@ -12,9 +12,6 @@ foobar.urlopen('baz')
 urllib2.urlopen('foo', None, 2)
 urllib2.urlopen('foo', None, TIMEOUT)
 
-c = httplib.HTTPConnection('foo', timeout=2)
-c = httplib.HTTPConnection('foo', 80, 'bar', 'baz', False, 2)
-
 requests.get('foo', timeout=2)
 requests.put('foo', timeout=TIMEOUT)
 
